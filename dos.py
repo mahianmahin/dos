@@ -10,7 +10,7 @@ LOCK = threading.Lock()
 def send_requests():
     global TOTAL_REQUESTS
 
-    url = "https://sazibacademy.com/"
+    url = "https://app.onnow.io/login/"
     # url = "https://piagency.tech/"
     while True:
         status_code = "540"
@@ -18,6 +18,8 @@ def send_requests():
             response = requests.get(url)
             # You can process the response here if needed
             status_code = response.status_code
+
+            print(f"{datetime.datetime.now().strftime('%d/%m/%Y - %H:%M:%S')} --- {status_code}")
 
             # Increment the total requests and log to file
             with LOCK:
